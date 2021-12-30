@@ -15,7 +15,7 @@ import {
 
 import theme from './styles/theme';
 
-import { SchedulingDetails } from './screens/SchedulingDetails';
+import { SchedulingComplete } from './screens/SchedulingComplete';
 
 
 export default function App() {
@@ -33,7 +33,7 @@ export default function App() {
 
   return (
       <ThemeProvider theme={theme}>
-          <SchedulingDetails />
+          <SchedulingComplete />
       </ThemeProvider>
   );
 }
