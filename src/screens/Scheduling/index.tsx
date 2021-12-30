@@ -28,7 +28,7 @@ export function Scheduling(){
     <Container>
         <Header> 
           <StatusBar 
-            barStyle="light-content"
+            barStyle="dark-content"
             translucent
             backgroundColor="transparent"
           />    
