@@ -7,6 +7,7 @@ import ArrowSvg from  '../../assets/arrow.svg';
 
 import { BackButton } from '../../components/BackButton';
 import { Button } from '../../components/Button';
+import { Calendar } from '../../components/Calendar';
 
 
 import {
@@ -59,7 +60,7 @@ export function Scheduling(){
         </Header>
 
         <Content>
-
+          <Calendar />
         </Content>
         <Footer>
             <GestureHandlerRootView>
