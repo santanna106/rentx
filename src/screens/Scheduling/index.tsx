@@ -2,6 +2,7 @@ import React from 'react';
 import { StatusBar } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import {useTheme} from 'styled-components';
+import { useNavigation } from '@react-navigation/native';
 
 import ArrowSvg from  '../../assets/arrow.svg'; 
 
@@ -24,6 +25,12 @@ import {
 
 export function Scheduling(){
   const theme = useTheme();
+  const navigation = useNavigation<any>();
+
+  function handleConfirmPeriod(){
+    navigation.navigate('SchedulingDetails');
+  }
+
   return (
     <Container>
         <Header> 
@@ -66,7 +73,7 @@ export function Scheduling(){
             <GestureHandlerRootView>
             <Button
                 title="Confirmar"
-                onPress={() => {}}
+                onPress={handleConfirmPeriod}
             />
             </GestureHandlerRootView>
         </Footer>

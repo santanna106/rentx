@@ -2,6 +2,7 @@ import React from 'react';
 import {GestureHandlerRootView} from 'react-native-gesture-handler'
 import { Feather } from '@expo/vector-icons';
 import { RFValue } from 'react-native-responsive-fontsize';
+import { useNavigation } from '@react-navigation/native';
 
 import { useTheme } from 'styled-components';
 
@@ -47,12 +48,18 @@ import {
 export function SchedulingDetails(){
   const theme = useTheme();
 
+  const navigation = useNavigation<any>();
+
+  function handleConfimScheduling(){
+    navigation.navigate('SchedulingComplete')
+  }
+
   return (
     
       <Container>
         <Header>     
           <GestureHandlerRootView>
-            <BackButton onPress={() => {console.log('TESTE')}} />
+            <BackButton onPress={handleConfimScheduling} />
           </GestureHandlerRootView>    
         </Header>
         <CarImages>
@@ -117,7 +124,7 @@ export function SchedulingDetails(){
 
         <Footer>
           <GestureHandlerRootView>
-            <Button title="Confirmar" onPress={() => {console.log('confirmar')}} /> 
+            <Button title="Confirmar" onPress={handleConfimScheduling} /> 
           </GestureHandlerRootView>
           
         </Footer>

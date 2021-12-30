@@ -1,5 +1,5 @@
 import React from 'react';
-import { RectButtonProps } from 'react-native-gesture-handler';
+import { RectButtonProps,GestureHandlerRootView } from 'react-native-gesture-handler';
 
 import {
   Container,
@@ -16,8 +16,10 @@ export function ConfirmButton({
     ...rest
 }:Props){
   return (
-    <Container {...rest}>
-        <Title>{title}</Title>
-    </Container>
+    <GestureHandlerRootView>
+      <Container {...rest}>
+          <Title>{title}</Title>
+      </Container>
+    </GestureHandlerRootView>
   );
 }

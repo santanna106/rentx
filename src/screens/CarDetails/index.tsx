@@ -1,5 +1,6 @@
 import React from 'react';
 import {GestureHandlerRootView} from 'react-native-gesture-handler'
+import { useNavigation } from '@react-navigation/native';
 
 
 import { BackButton } from '../../components/BackButton';
@@ -33,6 +34,11 @@ import {
 } from './styles';
  
 export function CarDetails(){
+  const navigation = useNavigation<any>();
+
+  function handleScheduling(){
+    navigation.navigate('Scheduling');
+  }
   return (
     
       <Container>
@@ -75,7 +81,7 @@ export function CarDetails(){
 
         <Footer>
           <GestureHandlerRootView>
-            <Button title="Confirmar" onPress={() => {console.log('confirmar')}} /> 
+            <Button title="Escolher período do aluguel" onPress={handleScheduling} /> 
           </GestureHandlerRootView>
           
         </Footer>
