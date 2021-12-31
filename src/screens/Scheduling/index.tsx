@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import { StatusBar } from 'react-native';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import {useTheme} from 'styled-components';
@@ -8,7 +8,7 @@ import ArrowSvg from  '../../assets/arrow.svg';
 
 import { BackButton } from '../../components/BackButton';
 import { Button } from '../../components/Button';
-import { Calendar } from '../../components/Calendar';
+import { Calendar,DateData,generateInterval,MarkedDateProps } from '../../components/Calendar';
 
 
 import {
@@ -24,11 +24,33 @@ import {
 } from './styles';
 
 export function Scheduling(){
+  const [lastSelectedDate,setLastSelectedDate] = useState<DateData>({} as DateData);
+  const [markedDates, setMarkedDates] = useState<MarkedDateProps>({} as MarkedDateProps);
   const theme = useTheme();
   const navigation = useNavigation<any>();
 
   function handleConfirmPeriod(){
     navigation.navigate('SchedulingDetails');
+  }
+
+  function handleBack(){
+    navigation.goBack();
+  }
+
+  function handleChangeDate(date:DateData){
+    let start = !lastSelectedDate.timestamp ? date : lastSelectedDate;
+    let end = date;
+
+    if(start.timestamp > end.timestamp){
+      let dateAux = start;
+      start = end;
+      end = dateAux;
+    }
+
+    setLastSelectedDate(end);
+    const interval = generateInterval(start,end);
+    setMarkedDates(interval);
+   
   }
 
   return (
@@ -41,7 +63,7 @@ export function Scheduling(){
           />    
           <GestureHandlerRootView>
             <BackButton 
-                onPress={() => {console.log('TESTE')}}
+                onPress={handleBack}
                 color={theme.colors.shape}
              />
           </GestureHandlerRootView>   
@@ -67,7 +89,10 @@ export function Scheduling(){
         </Header>
 
         <Content>
-          <Calendar />
+          <Calendar
+            markedDates={markedDates}
+            onDayPress={handleChangeDate}
+          />
         </Content>
         <Footer>
             <GestureHandlerRootView>
