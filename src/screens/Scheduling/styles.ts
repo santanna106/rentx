@@ -9,7 +9,7 @@ interface DateValueProps{
 
 export const Container = styled.View`
    flex:1;
-   background-color: ${({theme}) => theme.colors.background_secundary};
+   background-color: ${({theme}) => theme.colors.header};
 `;
 
 export const Header = styled.View`
@@ -76,4 +76,5 @@ export const  Content = styled.ScrollView.attrs({
 
 export const  Footer = styled.View`
     padding:24px;
+    background-color:${({theme}) => theme.colors.background_secundary}
 `;

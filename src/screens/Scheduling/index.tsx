@@ -95,12 +95,13 @@ export function Scheduling(){
 
   return (
     <Container>
+         <StatusBar
+          barStyle='light-content'
+          backgroundColor="transparent"
+          translucent
+         />
         <Header> 
-          <StatusBar 
-            barStyle="dark-content"
-            translucent
-            backgroundColor="transparent"
-          />    
+         
           <GestureHandlerRootView>
             <BackButton 
                 onPress={handleBack}
