@@ -1,7 +1,11 @@
 import React,{useEffect,useState} from 'react';
 import { StatusBar } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { RFValue } from 'react-native-responsive-fontsize'
+import { Ionicons } from '@expo/vector-icons';
+import { RFValue } from 'react-native-responsive-fontsize';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+
+import { useTheme } from 'styled-components';
 
 import Logo from '../../assets/logo.svg';
 import api from '../../services/api';
@@ -16,7 +20,8 @@ import {
   Header,
   TotalCars,
   HeaderContent,
-  CarList
+  CarList,
+  MyCarsButton
 } from './styles';
 
 export function Home(){
@@ -24,8 +29,14 @@ export function Home(){
   const [loading,setLoading] = useState(true);
   const navigation = useNavigation<any>();
 
+  const theme = useTheme();
+
   function handleCarDetails(car:CarDTO){
     navigation.navigate('CarDetails',{car});
+  }
+
+  function handleOpenMyCars(){
+    navigation.navigate('MyCars');
   }
 
   async function fetchCars(){
@@ -72,6 +83,16 @@ export function Home(){
               
             />
         }
+
+        <GestureHandlerRootView>
+          <MyCarsButton onPress={handleOpenMyCars}>
+            <Ionicons 
+              name="ios-car-sport"
+              size={32}
+              color={theme.colors.shape}
+            />
+          </MyCarsButton>
+        </GestureHandlerRootView>
     </Container>
   );
 }
