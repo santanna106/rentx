@@ -21,7 +21,8 @@ import {
   TotalCars,
   HeaderContent,
   CarList,
-  MyCarsButton
+  MyCarsButton,
+  MyCarsButtonWrapper
 } from './styles';
 
 export function Home(){
@@ -84,15 +85,17 @@ export function Home(){
             />
         }
 
-        <GestureHandlerRootView>
-          <MyCarsButton onPress={handleOpenMyCars}>
-            <Ionicons 
-              name="ios-car-sport"
-              size={32}
-              color={theme.colors.shape}
-            />
-          </MyCarsButton>
-        </GestureHandlerRootView>
+        <MyCarsButtonWrapper>
+          <GestureHandlerRootView>
+            <MyCarsButton onPress={handleOpenMyCars}>
+              <Ionicons 
+                name="ios-car-sport"
+                size={32}
+                color={theme.colors.shape}
+              />
+            </MyCarsButton>
+          </GestureHandlerRootView>
+        </MyCarsButtonWrapper>
     </Container>
   );
 }

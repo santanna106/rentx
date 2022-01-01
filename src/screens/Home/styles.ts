@@ -43,6 +43,19 @@ export const CarList = styled(FlatList as new(props: FlatListProps<CarDTO>)  => 
   
 `;
 
+export const MyCarsButtonWrapper = styled.View`
+   width:100%;
+   height:60px;
+
+   justify-content:center;
+   align-items:flex-end;
+
+   position:absolute;
+   bottom:13px;
+   right:22px;
+
+`;
+
 export const MyCarsButton = styled(RectButton)`
    width:60px;
    height:60px;
@@ -53,10 +66,5 @@ export const MyCarsButton = styled(RectButton)`
    justify-content:center;
 
    background-color:${({theme}) => theme.colors.main}
-
-   position:absolute;
-   bottom:13px;
-   right:22px;
-
 
 `;
