@@ -54,6 +54,8 @@ export function Scheduling(){
     if( !rentalPeriod.start || !rentalPeriod.end){
       Alert.alert("Selecione o período para aluguel");
     } else {
+
+      console.log('SchedulingDetails - Cars',car)
       navigation.navigate('SchedulingDetails',{
         car,
         dates:Object.keys(markedDates)
@@ -140,6 +142,7 @@ export function Scheduling(){
             <Button
                 title="Confirmar"
                 onPress={handleConfirmPeriod}
+                enabled={!!rentalPeriod.startFormatted}
             />
             </GestureHandlerRootView>
         </Footer>
