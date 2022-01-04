@@ -1,5 +1,5 @@
 import React,{useEffect,useState} from 'react';
-import { StatusBar, StyleSheet } from 'react-native';
+import { StatusBar, StyleSheet,BackHandler } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import { RFValue } from 'react-native-responsive-fontsize';
@@ -99,6 +99,12 @@ export function Home(){
     
   }, [])
 
+  useEffect(() => {
+    BackHandler.addEventListener('hardwareBackPress',() => {
+      return true;
+    })
+  },[])
+
   return (
     
       <Container>
@@ -114,9 +120,12 @@ export function Home(){
                 width = {RFValue(108)}
                 height = {RFValue(12)}
               />
-              <TotalCars>
+              { !loading && 
+                <TotalCars>
                   Total de {cars.length} carros
-              </TotalCars>
+                </TotalCars>
+              }
+              
             </HeaderContent>
           </Header>
 
@@ -173,7 +182,6 @@ const styles = StyleSheet.create({
     justifyContent:'center',
     alignItems:'flex-end',                 
     bottom:13,
-    right:22,
-    zIndex:2
+    right:22
   }
 })

@@ -15,7 +15,7 @@ const {Navigator,Screen} = createNativeStackNavigator();
 export function StackRoutes() {
     return (
      
-        <Navigator screenOptions={{headerShown:false}} initialRouteName='Splash'>
+        <Navigator screenOptions={{headerShown:false,gestureEnabled:false}} initialRouteName='Splash'>
           <Screen name="Splash" component={Splash} />
           <Screen name="Home" component={Home} />
           <Screen name="CarDetails" component={CarDetails} />
