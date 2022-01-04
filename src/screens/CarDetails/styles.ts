@@ -16,6 +16,7 @@ export const Header = styled.View`
    margin-top:${getStatusBarHeight() + 18}px;
    margin-left:24px
    margin-bottom:10px;
+   z-index: 2;
 
    
 `;

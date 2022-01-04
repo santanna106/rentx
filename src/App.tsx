@@ -1,5 +1,6 @@
 
 import React from 'react';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import AppLoading from 'expo-app-loading';
 import { ThemeProvider } from 'styled-components';
 import {
@@ -17,6 +18,7 @@ import theme from './styles/theme';
 
 import { Routes } from './routes';
 
+
 export default function App() {
   const [fontsLoaded] = useFonts({
     Inter_400Regular,
@@ -31,6 +33,7 @@ export default function App() {
   }
 
   return (
+    
       <ThemeProvider theme={theme}>
           <Routes />
       </ThemeProvider>

@@ -54,6 +54,8 @@ export const MyCarsButtonWrapper = styled.View`
    bottom:13px;
    right:22px;
 
+ 
+
 `;
 
 export const MyCarsButton = styled(RectButton)`
@@ -65,6 +67,6 @@ export const MyCarsButton = styled(RectButton)`
    align-items:center;
    justify-content:center;
 
-   background-color:${({theme}) => theme.colors.main}
+   
 
 `;
