@@ -1,5 +1,10 @@
-import React from 'react';
-import { StatusBar } from 'react-native';
+import React,{ useState } from 'react';
+import { 
+    StatusBar,
+    KeyboardAvoidingView,
+    TouchableWithoutFeedback,
+    Keyboard
+ } from 'react-native';
 
 import { useTheme } from 'styled-components';
  
@@ -18,57 +23,70 @@ import {
 
 export function SignIn(){
  
+  const [email,setEmail] = useState('');
+  const [password,setPassword] = useState('');
   const theme = useTheme();
 
   return (
-    <Container>
-        <StatusBar
-            barStyle='dark-content'
-            backgroundColor="transparent"
-            translucent
-        />
-        <Header>
-            <Title>Estamos {'\n'}quase lá </Title>
-            <Subtitle>
-                Faça seu login para começar {'\n'}
-                uma experiência incrível
-            </Subtitle>
-        </Header>
-        <Form>
-            <Input
-             iconName="mail"
-             placeholder='E-mail'
-             keyboardType='email-address'
-             autoCorrect={false}
-             autoCapitalize='none'
-             />
+    <KeyboardAvoidingView
+        behavior='position'
+        enabled>
+        <TouchableWithoutFeedback
+            onPress={Keyboard.dismiss}
+        >
+            <Container>
+                <StatusBar
+                    barStyle='dark-content'
+                    backgroundColor="transparent"
+                    translucent
+                />
+                <Header>
+                    <Title>Estamos {'\n'}quase lá </Title>
+                    <Subtitle>
+                        Faça seu login para começar {'\n'}
+                        uma experiência incrível
+                    </Subtitle>
+                </Header>
+                <Form>
+                    <Input
+                    iconName="mail"
+                    placeholder='E-mail'
+                    keyboardType='email-address'
+                    autoCorrect={false}
+                    autoCapitalize='none'
+                    value={email}
+                    onChangeText={setEmail}
+                    />
 
-            <PasswordInput
-             iconName="lock"
-             placeholder='Senha'
-             
-             />
-        </Form>
-       
+                    <PasswordInput
+                    iconName="lock"
+                    placeholder='Senha'
+                    value={password}
+                    onChangeText={setPassword}
+                    />
+                </Form>
+            
 
-        <Footer>
-            <Button 
-                title="Login"
-                onPress={() => {}}
-                enabled={false}
-                loading={false}
+                <Footer>
+                    <Button 
+                        title="Login"
+                        onPress={() => {}}
+                        enabled={false}
+                        loading={false}
 
-            />
-             <Button 
-                title="Criar conta gratuita"
-                onPress={() => {}}
-                enabled={true}
-                loading={false}
-                color={theme.colors.background_secundary}
-                light
-            />
-        </Footer>
+                    />
+                    <Button 
+                        title="Criar conta gratuita"
+                        onPress={() => {}}
+                        enabled={true}
+                        loading={false}
+                        color={theme.colors.background_secundary}
+                        light
+                    />
+                </Footer>
 
-    </Container>
+            </Container>
+        </TouchableWithoutFeedback>
+    </KeyboardAvoidingView>
   );
 }
