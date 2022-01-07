@@ -10,6 +10,7 @@ import { SchedulingComplete } from '../screens/SchedulingComplete';
 import { MyCars } from '../screens/MyCars';
 import { Splash } from '../screens/Splash';
 import { SignIn } from '../screens/SignIn';
+import { SignUpFirstStep } from '../screens/SignUp/SignUpFirstStep';
 
 const {Navigator,Screen} = createNativeStackNavigator();
 
@@ -19,6 +20,7 @@ export function StackRoutes() {
         <Navigator screenOptions={{headerShown:false,gestureEnabled:false}} initialRouteName='SignIn'>
           
           <Screen name="SignIn" component={SignIn} />
+          <Screen name="SignUpFirstStep" component={SignUpFirstStep} />
           <Screen name="Home" component={Home} />
           <Screen name="CarDetails" component={CarDetails} />
           <Screen name="Scheduling" component={Scheduling} />

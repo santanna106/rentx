@@ -1,5 +1,6 @@
 import React,{ useState } from 'react';
-import { GestureHandlerRootView, RectButton } from 'react-native-gesture-handler';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
+import { useNavigation } from '@react-navigation/native';
 
 import { 
     StatusBar,
@@ -7,8 +8,6 @@ import {
     TouchableWithoutFeedback,
     Keyboard,
     Alert,
-    TouchableOpacity,
-    Text
  } from 'react-native';
 
  import * as Yup from 'yup';
@@ -32,6 +31,8 @@ export function SignIn(){
  
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
+  
+  const navigation = useNavigation<any>();
   const theme = useTheme();
 
   async function handleSignIn(){
@@ -59,6 +60,10 @@ export function SignIn(){
     
 
  
+  }
+
+  function handleNewAccount(){
+    navigation.navigate('SignUpFirstStep')
   }
 
   return (  
@@ -115,7 +120,7 @@ export function SignIn(){
                             
                                 <Button 
                                     title="Criar conta gratuita"
-                                    onPress={() => alert('teste')}
+                                    onPress={handleNewAccount}
                                     enabled={true}
                                     loading={false}
                                     color={theme.colors.background_secundary}
