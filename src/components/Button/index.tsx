@@ -23,7 +23,8 @@ export function Button({
     enabled = true,
     onPress,
     loading = false,
-    light = false
+    light = false,
+    ...rest
 }:Props){
   return (
   
@@ -31,6 +32,7 @@ export function Button({
     color={color ? color : theme.colors.main}
     style={{opacity: (enabled === false || loading === true) ? .5 : 1}}
     onPress={onPress}
+    {...rest}
     >
       {loading ? 
         <ActivityIndicator 

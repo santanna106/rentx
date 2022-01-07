@@ -68,7 +68,7 @@ export function SignIn(){
         <TouchableWithoutFeedback
             onPress={Keyboard.dismiss}
         >
-          
+             <>  
                 <Container>
                     <StatusBar
                         barStyle='dark-content'
@@ -103,33 +103,32 @@ export function SignIn(){
                 
                     
                     <Footer>
-                    <GestureHandlerRootView>
-                            <Button 
-                                title="Login"
-                                onPress={handleSignIn}
-                                enabled={true}
-                                loading={false}
+                     
+                        <GestureHandlerRootView>
+                                <Button 
+                                    title="Login"
+                                    onPress={handleSignIn}
+                                    enabled={true}
+                                    loading={false}
 
-                            />
-                        
-                        
-                    
-                    
-                            <Button 
-                                title="Criar conta gratuita"
-                                onPress={() => alert('teste')}
-                                enabled={true}
-                                loading={false}
-                                color={theme.colors.background_secundary}
-                                light
-                            />
-                        </GestureHandlerRootView>
+                                />
+                            
+                                <Button 
+                                    title="Criar conta gratuita"
+                                    onPress={() => alert('teste')}
+                                    enabled={true}
+                                    loading={false}
+                                    color={theme.colors.background_secundary}
+                                    light
+                                />
+                            </GestureHandlerRootView>
+                     
                     </Footer>
                 
                     
                 </Container>
             
-         
+            </>
         </TouchableWithoutFeedback>
         
     </KeyboardAvoidingView>
