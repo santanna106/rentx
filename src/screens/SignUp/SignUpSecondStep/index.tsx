@@ -8,10 +8,11 @@ import {
 
 
 import { useNavigation } from '@react-navigation/native';
+import { useTheme } from 'styled-components';
 
 import { BackButton } from '../../../components/BackButton'
 import { Bullet } from '../../../components/Bullet';
-import { Input } from '../../../components/Input';
+import { PasswordInput } from '../../../components/PasswordInput';
 import { Button } from '../../../components/Button';
 
 import {
@@ -26,17 +27,13 @@ import {
 
 
 
-export function SignUpFirstStep(){
+export function SignUpSecondStep(){
   const navigation = useNavigation<any>();
+  const theme = useTheme();
 
   function handleBack(){
     navigation.goBack();
   }
-
-  function handleNext(){
-    navigation.navigate('SignUpSecondStep')
-  }
-
   return (
     <KeyboardAvoidingView
       behavior='position' enabled
@@ -64,27 +61,22 @@ export function SignUpFirstStep(){
             forma fácil e rápida
           </SubTitle>
           <Form>
-            <FormTitle>1. Dados</FormTitle>
-            <Input
-              iconName='user'
-              placeholder='Nome'
+            <FormTitle>1. Senha</FormTitle>
+            <PasswordInput
+              iconName='lock'
+              placeholder='Senha'
             />
-            <Input
-              iconName='mail'
-              placeholder='E-mail'
-              keyboardType='email-address'
-            />
-            <Input
-              iconName='credit-card'
-              placeholder='CNH'
-              keyboardType='numeric'
+            <PasswordInput
+              iconName='lock'
+              placeholder='Repetir Senha'
             />
           </Form>
 
           
             <Button 
-              onPress={handleNext}
-              title="Próximo"
+              onPress={() => {}}
+              title="Cadastrar"
+              color={theme.colors.success}
             />
          
         </Container>
