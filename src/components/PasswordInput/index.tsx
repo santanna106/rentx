@@ -43,8 +43,8 @@ export function PasswordInput({
   }
   
   return (
-    <Container isFocused={isFocused}>
-      <IconContainer>
+    <Container >
+      <IconContainer isFocused={isFocused}>
         <Feather 
           name={iconName}
           size={24}
@@ -53,6 +53,7 @@ export function PasswordInput({
       </IconContainer>
 
       <InputText
+       isFocused={isFocused}
        onBlur={handleInputBlur}
        onFocus={handleInputFocused}
        secureTextEntry={!isPasswordVisible}
@@ -61,7 +62,7 @@ export function PasswordInput({
         />
       <GestureHandlerRootView>   
         <BorderlessButton onPress={togglePasswordVisible}>
-          <IconContainer>
+          <IconContainer  isFocused={isFocused}>
             <Feather 
                 name={isPasswordVisible ? 'eye-off' : 'eye'}
                 size={24}
