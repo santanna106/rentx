@@ -3,7 +3,7 @@ import { StatusBar, StyleSheet,BackHandler } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 import { RFValue } from 'react-native-responsive-fontsize';
-import { GestureHandlerRootView, RectButton,PanGestureHandler } from 'react-native-gesture-handler';
+import { RectButton,PanGestureHandler } from 'react-native-gesture-handler';
 
 import Animated, {
   useSharedValue,
@@ -137,11 +137,7 @@ export function Home(){
                 
               />
           }
-
-        
-           
-              <GestureHandlerRootView>
-              <PanGestureHandler onGestureEvent={gestureHandler}>
+          <PanGestureHandler onGestureEvent={gestureHandler}>
              
                 <Animated.View style={[
                     myCarsButtonStyle,styles.buttonView
@@ -158,11 +154,7 @@ export function Home(){
                       </ButtonAnimated>
                     
                   </Animated.View>
-                </PanGestureHandler>
-                </GestureHandlerRootView>
-              
-            
-         
+          </PanGestureHandler>
       </Container>
    
   );

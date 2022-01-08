@@ -1,5 +1,4 @@
 import React,{ useState } from 'react';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 
 import { 
@@ -73,8 +72,8 @@ export function SignIn(){
         <TouchableWithoutFeedback
             onPress={Keyboard.dismiss}
         >
-             <>  
-                <Container>
+            
+            <Container>
                     <StatusBar
                         barStyle='dark-content'
                         backgroundColor="transparent"
@@ -108,32 +107,23 @@ export function SignIn(){
                 
                     
                     <Footer>
-                     
-                        <GestureHandlerRootView>
-                                <Button 
-                                    title="Login"
-                                    onPress={handleSignIn}
-                                    enabled={true}
-                                    loading={false}
-
-                                />
+                        <Button 
+                              title="Login"
+                              onPress={handleSignIn}
+                              enabled={true}
+                              loading={false}
+                         />
                             
-                                <Button 
-                                    title="Criar conta gratuita"
-                                    onPress={handleNewAccount}
-                                    enabled={true}
-                                    loading={false}
-                                    color={theme.colors.background_secundary}
-                                    light
-                                />
-                            </GestureHandlerRootView>
-                     
+                        <Button 
+                              title="Criar conta gratuita"
+                              onPress={handleNewAccount}
+                              enabled={true}
+                              loading={false}
+                              color={theme.colors.background_secundary}
+                              light
+                        />
                     </Footer>
-                
-                    
                 </Container>
-            
-            </>
         </TouchableWithoutFeedback>
         
     </KeyboardAvoidingView>

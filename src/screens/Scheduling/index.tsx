@@ -1,7 +1,6 @@
-import React,{useState} from 'react';
+import React,{ useState } from 'react';
 import { Alert, StatusBar } from 'react-native';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import {useTheme} from 'styled-components';
+import { useTheme } from 'styled-components';
 import { useNavigation,useRoute } from '@react-navigation/native';
 import { format } from 'date-fns';
 
@@ -103,13 +102,11 @@ export function Scheduling(){
           translucent
          />
         <Header> 
-         
-          <GestureHandlerRootView>
-            <BackButton 
-                onPress={handleBack}
-                color={theme.colors.shape}
-             />
-          </GestureHandlerRootView>   
+          <BackButton 
+              onPress={handleBack}
+              color={theme.colors.shape}
+          />
+       
           <Title>
             Escolha uma {'\n'}
             data de início e {'\n'}
@@ -138,13 +135,11 @@ export function Scheduling(){
           />
         </Content>
         <Footer>
-            <GestureHandlerRootView>
             <Button
                 title="Confirmar"
                 onPress={handleConfirmPeriod}
                 enabled={!!rentalPeriod.startFormatted}
             />
-            </GestureHandlerRootView>
         </Footer>
     </Container>
   );

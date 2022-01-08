@@ -4,9 +4,7 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
  } from 'react-native';
- import { GestureHandlerRootView } from 'react-native-gesture-handler';
-
-
+ 
 import { useNavigation } from '@react-navigation/native';
 
 import { BackButton } from '../../../components/BackButton'
@@ -41,9 +39,7 @@ export function SignUpFirstStep(){
     <KeyboardAvoidingView
       behavior='position' enabled
     >
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <>
-      <GestureHandlerRootView>
+      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>  
         <Container>
       
           <Header>
@@ -88,8 +84,8 @@ export function SignUpFirstStep(){
             />
          
         </Container>
-        </GestureHandlerRootView>
-        </>
+       
+    
       </TouchableWithoutFeedback>
   
     </KeyboardAvoidingView>

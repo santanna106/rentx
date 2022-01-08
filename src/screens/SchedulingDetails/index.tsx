@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { Alert } from 'react-native';
-import {GestureHandlerRootView} from 'react-native-gesture-handler'
 import { Feather } from '@expo/vector-icons';
 import { RFValue } from 'react-native-responsive-fontsize';
 import { useNavigation,useRoute } from '@react-navigation/native';
@@ -116,9 +115,7 @@ export function SchedulingDetails(){
     
       <Container>
         <Header>     
-          <GestureHandlerRootView>
-            <BackButton onPress={handleBack} />
-          </GestureHandlerRootView>    
+          <BackButton onPress={handleBack} />
         </Header>
         <CarImages>
           <ImageSlider imagesUrl={car.photos} />
@@ -185,7 +182,6 @@ export function SchedulingDetails(){
         </Content>
 
         <Footer>
-          <GestureHandlerRootView>
             <Button 
               title="Alugar Agora"
               color={theme.colors.success} 
@@ -193,8 +189,6 @@ export function SchedulingDetails(){
               enabled={!loading}
               loading={loading}
              /> 
-          </GestureHandlerRootView>
-          
         </Footer>
       </Container>
 

@@ -4,8 +4,6 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
  } from 'react-native';
- import { GestureHandlerRootView } from 'react-native-gesture-handler';
-
 
 import { useNavigation } from '@react-navigation/native';
 import { useTheme } from 'styled-components';
@@ -39,8 +37,6 @@ export function SignUpSecondStep(){
       behavior='position' enabled
     >
       <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      <>
-      <GestureHandlerRootView>
         <Container>
       
           <Header>
@@ -80,8 +76,6 @@ export function SignUpSecondStep(){
             />
          
         </Container>
-        </GestureHandlerRootView>
-        </>
       </TouchableWithoutFeedback>
   
     </KeyboardAvoidingView>

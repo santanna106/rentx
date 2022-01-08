@@ -1,7 +1,6 @@
 import React from 'react';
 import {StatusBar, StyleSheet} from 'react-native';
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
-import {GestureHandlerRootView} from 'react-native-gesture-handler'
 
 import { useNavigation,useRoute } from '@react-navigation/native';
 import { useTheme } from 'styled-components';
@@ -103,9 +102,7 @@ export function CarDetails(){
                 {backgroundColor: theme.colors.background_secundary}]}
         >
           <Header>     
-            <GestureHandlerRootView>
-              <BackButton onPress={handleBack} />
-            </GestureHandlerRootView>    
+            <BackButton onPress={handleBack} />    
           </Header>
        
 
@@ -174,10 +171,7 @@ export function CarDetails(){
         </Animated.ScrollView>
 
         <Footer>
-          <GestureHandlerRootView>
-            <Button title="Escolher período do aluguel" onPress={handleScheduling} /> 
-          </GestureHandlerRootView>
-          
+          <Button title="Escolher período do aluguel" onPress={handleScheduling} /> 
         </Footer>
       </Container>
 

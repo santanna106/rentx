@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { StatusBar } from 'react-native';
-import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { AntDesign } from '@expo/vector-icons';
-import { useNavigation,useRoute } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
 
 import { useTheme } from 'styled-components';
 
@@ -70,12 +69,11 @@ export function MyCars(){
           backgroundColor="transparent"
           translucent
          />
-          <GestureHandlerRootView>
-            <BackButton
-                onPress={handleBack}
-                color={theme.colors.shape}
-             />
-          </GestureHandlerRootView>   
+          <BackButton
+              onPress={handleBack}
+              color={theme.colors.shape}
+          />
+        
           <Title>
             Escolha uma {'\n'}
             data de início e {'\n'}
