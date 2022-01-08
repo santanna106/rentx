@@ -90,7 +90,13 @@ export function SchedulingDetails(){
       unavailable_dates
     })
     .then(response => {
-      navigation.navigate('SchedulingComplete')
+      navigation.navigate('Confirmation',{
+       
+          nextScreenRoute: 'Home',
+          title:'Carro alugado!',
+          message:`Agora você só precisar ir\naté a concessionária da RENTEX\npegar o seu automóvel.`
+        
+      })
     })
     .catch(() => {
       Alert.alert('Não foi possível confirmar o agendamento')

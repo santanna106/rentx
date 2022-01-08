@@ -9,7 +9,7 @@ import {
   Title
 } from './styles';
 
-interface Props extends RectButtonProps {
+interface Props extends TouchableOpacityProps {
     title:string;
     color?:string;
     enabled?:boolean;
