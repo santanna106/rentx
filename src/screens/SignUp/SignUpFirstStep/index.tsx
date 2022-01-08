@@ -1,9 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { 
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
   Keyboard,
+  Alert
  } from 'react-native';
+ import * as Yup from 'yup';
  
 import { useNavigation } from '@react-navigation/native';
 
@@ -25,14 +27,38 @@ import {
 
 
 export function SignUpFirstStep(){
+  const [name,setName] = useState('');
+  const [email,setEmail] = useState('');
+  const [driverLicense,setDriverLicense] = useState('');
+
   const navigation = useNavigation<any>();
 
   function handleBack(){
     navigation.goBack();
   }
 
-  function handleNext(){
-    navigation.navigate('SignUpSecondStep')
+  async function handleNext(){
+    try {
+      const schema = Yup.object().shape({
+        name: Yup.string()
+         .required('Nome é obrigatório'),
+        email: Yup.string()
+          .email('E-mail inválido')
+          .required('E-mail é obrigatório'),
+        driverLicense: Yup.string()
+         .required('CNH é obrigatória')
+      });
+
+      const data = { name, email, driverLicense};
+      await schema.validate(data);
+
+      navigation.navigate('SignUpSecondStep',{user:data});
+    } catch (error) {
+      if(error instanceof Yup.ValidationError){
+        return Alert.alert('Opa', error.message);
+      }
+    }
+    
   }
 
   return (
@@ -64,16 +90,22 @@ export function SignUpFirstStep(){
             <Input
               iconName='user'
               placeholder='Nome'
+              onChangeText={setName}
+              value={name}
             />
             <Input
               iconName='mail'
               placeholder='E-mail'
               keyboardType='email-address'
+              onChangeText={setEmail}
+              value={email}
             />
             <Input
               iconName='credit-card'
               placeholder='CNH'
               keyboardType='numeric'
+              onChangeText={setDriverLicense}
+              value={driverLicense}
             />
           </Form>
 
