@@ -99,11 +99,15 @@ export function Home(){
     
   }, [])
 
+  /*
+  Impedir que o usuário retorne através do botão de backButton do celular 
   useEffect(() => {
     BackHandler.addEventListener('hardwareBackPress',() => {
       return true;
     })
   },[])
+ */
+
 
   return (
     

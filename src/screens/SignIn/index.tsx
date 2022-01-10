@@ -1,6 +1,8 @@
 import React,{ useState } from 'react';
 import { useNavigation } from '@react-navigation/native';
 
+import { useAuth } from '../../hooks/auth';
+
 import { 
     StatusBar,
     KeyboardAvoidingView,
@@ -26,10 +28,13 @@ import {
   Footer
 } from './styles';
 
+
 export function SignIn(){
  
   const [email,setEmail] = useState('');
   const [password,setPassword] = useState('');
+
+  const { signIn } = useAuth();
   
   const navigation = useNavigation<any>();
   const theme = useTheme();
@@ -46,6 +51,8 @@ export function SignIn(){
         });
 
         await schema.validate({email,password});
+
+        signIn({email,password});
        
     } catch (error) {
         if(error instanceof Yup.ValidationError){

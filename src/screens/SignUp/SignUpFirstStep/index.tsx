@@ -7,6 +7,7 @@ import {
  } from 'react-native';
  import * as Yup from 'yup';
  
+
 import { useNavigation } from '@react-navigation/native';
 
 import { BackButton } from '../../../components/BackButton'
@@ -26,12 +27,14 @@ import {
 
 
 
+
 export function SignUpFirstStep(){
   const [name,setName] = useState('');
   const [email,setEmail] = useState('');
   const [driverLicense,setDriverLicense] = useState('');
 
   const navigation = useNavigation<any>();
+
 
   function handleBack(){
     navigation.goBack();

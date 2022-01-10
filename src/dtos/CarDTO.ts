@@ -4,6 +4,7 @@ export interface RentDTO {
 }
 
 export interface AccessoryDTO{
+      id:string;
     type:string;
     name:string;    
 }
@@ -13,9 +14,13 @@ export interface CarDTO {
     brand:string;
     name:string;
     about:string;
-    rent:RentDTO;
+    period:string;
+    price:number;
     fuel_type:string;
     thumbnail: string;
     accessories: AccessoryDTO[];
-    photos: string[];
+    photos: {
+      id:string;
+      photo:string;  
+    }[];
   }
