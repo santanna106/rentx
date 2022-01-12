@@ -21,6 +21,7 @@ export function AppTabRoutes() {
     return (
      
         <Navigator
+       
         screenOptions={{
          
           tabBarActiveTintColor: theme.colors.main,
@@ -36,7 +37,9 @@ export function AppTabRoutes() {
         >
           <Screen name="Home" 
                   component={AppStackRoutes} 
+                  
                   options={{
+                    headerShown:false,
                     tabBarIcon: (({ color }) => (
                       <HomeSvg width={24} height={24} fill={color}/>
                     ))
@@ -45,6 +48,7 @@ export function AppTabRoutes() {
           <Screen name="MyCars"
                   component={MyCars} 
                   options={{
+                    headerShown:false,
                     tabBarIcon: (({ color }) => (
                       <CarSvg width={24} height={24} fill={color}/>
                     ))
@@ -53,6 +57,7 @@ export function AppTabRoutes() {
           <Screen name="Profile" 
                   component={Profile}
                   options={{
+                    headerShown:false,
                     tabBarIcon: (({ color }) => (
                       <PeopleSvg width={24} height={24} fill={color} />
                     ))
