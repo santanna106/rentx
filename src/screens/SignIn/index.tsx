@@ -1,4 +1,4 @@
-import React,{ useState } from 'react';
+import React,{ useState} from 'react';
 import { useNavigation } from '@react-navigation/native';
 
 import { useAuth } from '../../hooks/auth';
@@ -72,6 +72,7 @@ export function SignIn(){
     navigation.navigate('SignUpFirstStep')
   }
 
+  
   return (  
     <KeyboardAvoidingView
         behavior='position'
