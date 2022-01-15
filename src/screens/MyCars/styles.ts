@@ -2,7 +2,7 @@ import styled from 'styled-components/native';
 import { FlatList, FlatListProps } from 'react-native';
 import { getStatusBarHeight } from 'react-native-iphone-x-helper';
 import { RFValue } from 'react-native-responsive-fontsize';
-import { CarProps } from '.';
+import { DataProps } from './index';
 
 
 export const Container = styled.View`
@@ -74,7 +74,7 @@ export const CarWrapper = styled.View`
 
 `;
 
-export const CarList = styled(FlatList as new(props: FlatListProps<CarProps>)  => FlatList<CarProps> ).attrs({
+export const CarList = styled(FlatList as new(props: FlatListProps<DataProps>)  => FlatList<DataProps> ).attrs({
     contentContainerStyle : {
        padding: 24
     },

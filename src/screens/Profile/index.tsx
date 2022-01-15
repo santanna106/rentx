@@ -7,6 +7,7 @@ import {
 import { Feather } from '@expo/vector-icons';
 import * as ImagePicker from 'expo-image-picker';
 
+import { useNetInfo } from '@react-native-community/netinfo';
 import { useNavigation } from '@react-navigation/native';
 import { useBottomTabBarHeight } from '@react-navigation/bottom-tabs';
 import { useTheme } from 'styled-components';
@@ -35,10 +36,12 @@ import {
   Section
 
 } from './styles';
-import { CarFooterPeriod } from '../MyCars/styles';
+
+
 
 export function Profile(){
   const { user,signOut,updateUser } = useAuth();
+  const netInfo = useNetInfo();
 
   const [avatar,setAvatar] = useState(user.avatar);
   const [name,setName] = useState(user.name);
@@ -55,7 +58,11 @@ export function Profile(){
   
 
   function handleOptionChange(optionSelected: 'dataEdit'|'passwordEdit'){
-      setOption(optionSelected);
+      if(netInfo.isConnected === false && optionSelected === 'passwordEdit'){
+          Alert.alert('Você está Offline','Para muda a senha conect-se à internet');
+      } else {
+        setOption(optionSelected);
+      }
   }
 
   async function handleSelectAvatar(){
